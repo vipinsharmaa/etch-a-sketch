@@ -15,15 +15,48 @@ ul li {
 
 /*  My CSS */
 
+#wrapper {
+    display: flex;
+    margin-left: 3em;
+    align-items: baseline
+}
+
 .box {
     outline: 1px solid black;
-    width: 80px;
-    height: 80px;
+    aspect-ratio: 1;
+}
 
+.hovered {
+    background-color: black;
 }
 
 #container {
     display: flex;
     flex-wrap: wrap;
+    margin: 1em auto;
+    width: 700px;
+
+}
+
+button {
+    display: inline-block;
+    outline: none;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+    padding: 2px 16px;
+    height: 38px;
+    min-width: 96px;
+    min-height: 38px;
+    border: none;
+    color: #fff;
+    background-color: rgb(88, 101, 242);
+    transition: background-color .17s ease, color .17s ease;
+
+    :hover {
+        background-color: rgb(71, 82, 196);
+    }
 
 }
