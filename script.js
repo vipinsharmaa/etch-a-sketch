@@ -10,21 +10,30 @@ function createGrid(size) {
         box.classList.add("box");
         container.appendChild(box);
         box.style.flex = `0 0 calc(100% / ${size})`;
+
     }
+    fillBoxes();
 
+}
+// Fill the boxes when hovered
 
-    // Fill the boxes when hovered
-
-
+function fillBoxes(color) {
     const boxes = document.querySelectorAll('.box');
 
     boxes.forEach(box => {
         box.addEventListener('mouseover', () => {
-            box.classList.add("hovered");
-        });
-    });
 
+            if (color === 'random') {
+                box.style.backgroundColor = randomColor();
+            }
+            else {
+                box.style.backgroundColor = 'black';
+            }
+        });
+
+    });
 }
+
 
 
 // Grid button
@@ -43,28 +52,25 @@ grid.addEventListener('click', function () {
 
 });
 
+// random number for rgb values 
+
+
+function randomColor() {
+    let r = Math.floor(Math.random() * 256); // random red component
+    let g = Math.floor(Math.random() * 256); // random green component
+    let b = Math.floor(Math.random() * 256); // random blue component
+    return `rgb(${r}, ${g}, ${b})`; // return RGB color string
+}
+
 
 // Random colors
 
 const rainbow = document.querySelector('.rainbow');
 rainbow.addEventListener('click', function () {
-
-    const boxes = document.querySelectorAll('.box');
-
-    boxes.forEach(box => {
-        box.addEventListener('mouseover', () => {
-            box.style.backgroundColor = `rgb(${random()},${random()},${random()})`;
-        });
-    });
-
+    fillBoxes('random');
 });
 
 
-// random number for rgb values 
-
-function random() {
-    return Math.floor((Math.random() * 255) + 1);
-}
 
 // initial grid
 
